@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Display a map on a webpage</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js"></script>
+ <link href="https://fonts.googleapis.com/css?family=Lora|Noto+Sans|New+Tegomin|Tangerine|Inconsolata|Roboto|Teko|Comfortaa|Oxygen|Domine|Cinzel|Knewave|Creepster|Share|Rye|Langar|Chonburi|Corben|Gugi|Mirza|Pompiere|Baumans|Codystar|Kufam|Lemon|" rel="stylesheet">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Dialog - Animation</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+<style>
+body { margin: 0; padding: 0; background-color:rgba(99,16,69,.08);}
+#map { position: absolute; top: 60; bottom: 0; width: 100%; height: 90%; }
+#title {color: #5D5D5D; font-size: 30px; font-family: 'Roboto', monospace; height:100%; width:100%;	display: flex; padding: 20px; margin: 20px; margin: auto;}
+  dialog {color: #5D5D5D;font-size: 14px; font-family: 'PT Mono', monospace; position: relative; width: 25%; background-color:rgba(233, 234, 237, 0.5); padding: 10px; margin: 20px; text-align: center;}
+  #opener {color: #5D5D5D;font-size: 14px; font-family: 'PT Mono', monospace; position: relative; width: 25%; background-color:rgba(233, 234, 237, 0.5); padding: 10px; margin: 20px; display: flex; text-align: center;}
+  #middle {color: #5D5D5D;font-size: 14px; font-family: 'PT Mono', monospace; position: relative; width: 25%; background-color:rgba(233, 234, 237, 0.5); padding: 10px; margin: 20px; display: flex; text-align: center;}
+  #last {color: #5D5D5D;font-size: 14px; font-family: 'PT Mono', monospace; position: relative; width: 25%; background-color:rgba(233, 234, 237, 0.5); padding: 10px; margin: 20px; display: flex; text-align: center;}
+  
+
+</style>
+</head>
+
+
+<body>
+<div id="map"></div>
+<div id="container"></div>
+<h1 id="title">CZU Lightning Complex Fire</h1>
+
+<div id="dialog" title="Basic dialog">
+  <p>This is an animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the &apos;x&apos; icon.</p>
+</div>
+ 
+<button id="opener">Legend</button>
+<button id="middle">About This Map</button>
+<button id="last">Methodology</button>
+
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiY2VkdWRsZXkiLCJhIjoiY2o1bXdqc3E5MnNhcjMycGdjdHR5dzB4biJ9.MMoClAjLdt6l68bAv1C6dA';
+    var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/cedudley/ckp4fs30n18jl17nxf3dmovea', // style URL
+        center: [-122.19511047038061, 37.1196740759339], // starting position [lng, lat]
+        zoom: 10 // starting zoom
+    });
+
+  map.on('click', function (e) {
+    var features = map.queryRenderedFeatures(e.point, {
+    layers: ['Tenure-phhi']
+    });
+    if (!features.length) {
+    return;
+    }
+
+  var feature = features[0];
+ 
+  var popup = new mapboxgl.Popup({ offset: [0, -15] })
+  .setLngLat(feature.geometry.coordinates)
+  .setHTML(
+  '<h3>' +
+  feature.properties.title +
+  '</h3>' +
+  '<p>' +
+  feature.properties.description +
+  '</p>'
+  ).addTo(map);
+  });
+ 
+    $( "#opener" ).on( "click", function() {
+      $( "#dialog" ).dialog( "open" );
+    });
+ 
+</script>
+</body>
+</html>
