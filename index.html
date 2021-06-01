@@ -6,26 +6,37 @@
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js"></script>
- <link href="https://fonts.googleapis.com/css?family=Lora|Noto+Sans|New+Tegomin|Tangerine|Inconsolata|Roboto|Teko|Comfortaa|Oxygen|Domine|Cinzel|Knewave|Creepster|Share|Rye|Langar|Chonburi|Corben|Gugi|Mirza|Pompiere|Baumans|Codystar|Kufam|Lemon|" rel="stylesheet">
-
-   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>jQuery UI Accordion - Default functionality</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
+<link href="https://fonts.googleapis.com/css?family=Lora|Noto+Sans|New+Tegomin|Tangerine|Inconsolata|Roboto|Teko|Comfortaa|Oxygen|Domine|Cinzel|Knewave|Creepster|Share|Rye|Langar|Chonburi|Corben|Gugi|Mirza|Pompiere|Baumans|Codystar|Kufam|Lemon|" rel="stylesheet">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
   $( function() {
-    $( "#accordion" ).accordion();
+    $( "#accordion" ).accordion();({collapsible: true});
   } );
-
+</script>
 
 <style>
-body { margin: 0; padding: 0; background-color:rgba(99,16,69,.08);}
+body { margin: 0; padding: 0; background-color:rgba(255, 255, 255, 0.8);}
 #map { position: absolute; top: 60; bottom: 0; width: 100%; height: 90%; }
 #title {color: #5D5D5D; font-size: 30px; font-family: 'Roboto', monospace; height:100%; width:100%;	display: flex; padding: 20px; margin: 20; margin: auto;}
-  
+#accordion {
+  font-size: .7em;
+  font-family: 'PT Mono', monospace;
+  font-weight: normal;
+  color: #696969;
+  position: fixed;
+  top: 15%;
+  left: 10px;
+  width: 30%;
+  padding: 10px 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px hidden;
+  border-radius: 3px;
+  z-index: 800;
+}
+img {width='300px'}
 
 </style>
 </head>
@@ -33,55 +44,39 @@ body { margin: 0; padding: 0; background-color:rgba(99,16,69,.08);}
 
 <body>
 <div id="map"></div>
-<div id="container"></div>
-<h1 id="title">CZU Lightning Complex Fire</h1>
+<h1 id="title">Homes Destroyed In The CZU Lightning Complex Fire</h1>
 
 <div id="accordion">
-  <h3>Section 1</h3>
+  <h3>legend</h3>
+  <div>
+   <img src_accordion='image/PercentDamageUnits4.png'>
+  </div>
+  <h3>about the CZU fire</h3>
   <div>
     <p>
-    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+    This map visualizes data about home structures in Santa Cruz County that were destroyed during the CZU Lightning Complex Fire from August 16, 2020 to September 22, 2020. <br>CZU Lightning Complex Fire was a major wildfire in 2020 located in California across Santa Cruz and San Mateo Counties. In total, 86,509 acres of land were burned. While tens of thousands of people evacuated from their homes, in total there were 1,331 structures in Santa Cruz County destroyed in the fire, while 2,598 structures were located within the perimeter and sustained damages of varying extents. Meanwhile, 7,735 structures are located within a mile of the perimeter of the fire, some in designated Debris Overflow Hazard Areas. 
+  </p>
+  <p>
+     Many residents have yet to return home or rebuild as the city assesses damages and safety of roads and infrastructure and as insurance companies manage claims. This is all occurring in the midst of a housing crisis, where the average rent for a one-bedroom in Santa Cruz is nearly $2,500.00/month- and in the midst of a global pandemic, where unhoused residents are regularly evicted from encampments. 
     </p>
   </div>
-  <h3>Section 2</h3>
+  <h3>background + sources</h3>
   <div>
     <p>
-    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-    suscipit faucibus urna.
-    </p>
-  </div>
-  <h3>Section 3</h3>
-  <div>
-    <p>
-    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-    Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-    ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-    lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+    As a resident of Santa Cruz myself, I am curious about data that various governmental and environmental agencies collected and made publicly available about the impacts of the CZU Fire. I want to explore these impacts in comparison to existing demographic conditions of the area. 
+  </p> 
+  <p>
+    This map draws in data about the number of existing units in block groups before the fire, percentage of units destroyed by the fire, and the median amount of income spent on rent in that area in 2019. This map visualizes the percentage of units that were destroyed in the CZU fire.
+  </p>
+  <p>
+     The label “destroyed” is defined by CAL Fire and the County of Santa Cruz as structures that were more than 50% burned, leaving them uninhabitable. Data sources include: 
+CalFire https://frap.fire.ca.gov/mapping/gis-data/
     </p>
     <ul>
-      <li>List item one</li>
-      <li>List item two</li>
-      <li>List item three</li>
+      <li><a href="url">GIS Santa Cruz County https://gis.santacruzcounty.us/</a></li>
+      <li><a href="url">U.S. Census Bureau https://data.census.gov/</a></li>
+      <li><a href="url">CalFire https://frap.fire.ca.gov/mapping/gis-data/</a></li>
     </ul>
-  </div>
-  <h3>Section 4</h3>
-  <div>
-    <p>
-    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-    faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-    mauris vel est.
-    </p>
-    <p>
-    Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-    inceptos himenaeos.
-    </p>
   </div>
 </div>
 
@@ -91,9 +86,36 @@ body { margin: 0; padding: 0; background-color:rgba(99,16,69,.08);}
         container: 'map', // container id
         style: 'mapbox://styles/cedudley/ckp4fs30n18jl17nxf3dmovea', // style URL
         center: [-122.19511047038061, 37.1196740759339], // starting position [lng, lat]
-        zoom: 10 // starting zoom
+        zoom: 10.5 // starting zoom
     });
+ map.on('click', function (e) {
+    var features = map.queryRenderedFeatures(e.point, {
+    layers: ['percentdestroyedunits']
+    });
+    if (!features.length) {
+    return;
+    }
+
+  var feature = features[0];
  
+  var popup = new mapboxgl.Popup({ offset: [0, -15] })
+  .setLngLat(feature.geometry.coordinates)
+  .setHTML(
+  '<h3>' + 'Number of occupied units before fire: ' +
+  feature.properties.title +
+  '</h3>' +
+  '<p>' + 'Percent of units destroyed in fire: ' +
+  feature.properties.description +
+  '</p>' +
+  '<p>' + 'Average percent of income spent on rent in 2019: ' +
+  feature.properties.mgr_phhi +
+  '</p>'
+  ).addTo(map);
+  });
+ 
+    $( "#opener" ).on( "click", function() {
+      $( "#dialog" ).dialog( "open" );
+    });
 </script>
 </body>
 </html>
