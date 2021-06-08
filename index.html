@@ -6,28 +6,31 @@
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Lora|Noto+Sans|New+Tegomin|Tangerine|Inconsolata|Roboto|Teko|Comfortaa|Oxygen|Domine|Cinzel|Knewave|Creepster|Share|Rye|Langar|Chonburi|Corben|Gugi|Mirza|Pompiere|Baumans|Codystar|Kufam|Lemon|" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300&family=Ropa+Sans&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
   $( function() {
-    $( "#accordion" ).accordion();({collapsible: true});
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
   } );
 </script>
 
 <style>
 body { margin: 0; padding: 0; background-color:rgba(255, 255, 255, 0.8);}
-#map { position: absolute; top: 60; bottom: 0; width: 100%; height: 90%; }
-#title {color: #5D5D5D; font-size: 30px; font-family: 'Roboto', monospace; height:100%; width:100%;	display: flex; padding: 20px; margin: 20; margin: auto;}
+#map { position: absolute; top: 50; bottom: 0; width: 100%; height: 84%; }
+#title {color: #5D5D5D; font-size: 35px; font-family: 'Ropa Sans', sans-serif; height:100%; width:100%;	margin-left: 25px; margin-bottom: 0px; padding: 0px;}
+#heading {color: #5D5D5D; font-size: 15px; font-family: 'Noto Sans SC', sans-serif; height:100%; width:100%; margin-left: 25px; padding: 0px;}
 #accordion {
-  font-size: .7em;
-  font-family: 'PT Mono', monospace;
-  font-weight: normal;
-  color: #696969;
+  font-size: .8em;
+  font-family: 'Noto Sans SC', sans-serif;
+  color: #5D5D5D;
   position: fixed;
-  top: 15%;
+  top: 20%;
   left: 10px;
   width: 30%;
   padding: 10px 10px;
@@ -37,6 +40,15 @@ body { margin: 0; padding: 0; background-color:rgba(255, 255, 255, 0.8);}
   z-index: 800;
 }
 img {width='300px'}
+.mapboxgl-popup-content {
+  font: 400 15px/22px 'Ropa Sans', sans-serif;
+  padding: 3;
+  width: 400px;
+}
+
+.mapboxgl-popup-content h3 {
+  color: #50656d; 
+}
 
 </style>
 </head>
@@ -44,39 +56,44 @@ img {width='300px'}
 
 <body>
 <div id="map"></div>
-<h1 id="title">Homes Destroyed In The CZU Lightning Complex Fire</h1>
-
+<h1 id="title">Homes In Santa Cruz County Destroyed By The 2020 Wildfire</h1>
+<h2 id="heading">The CZU Lightning Complex wildfire burned from August 16, 2020 to September 22, 2020, destroying 1,477 homes in Santa Cruz County <br> and displacing many homeowners and renters. This map explores data about the residents impacted by fire.</h2>
 <div id="accordion">
-  <h3>legend</h3>
+  <h3>LEGEND</h3>
   <div>
    <img src='image/PercentDestroyedUnits.png'>
   </div>
-  <h3>about the CZU fire</h3>
+  <h3>ABOUT THE 2020 CZU LIGHTNING COMPLEX FIRE</h3>
   <div>
-    <p>
-    This map visualizes data about home structures in Santa Cruz County that were destroyed during the CZU Lightning Complex Fire from August 16, 2020 to September 22, 2020. <br>CZU Lightning Complex Fire was a major wildfire in 2020 located in California across Santa Cruz and San Mateo Counties. In total, 86,509 acres of land were burned. While tens of thousands of people evacuated from their homes, in total there were 1,331 structures in Santa Cruz County destroyed in the fire, while 2,598 structures were located within the perimeter and sustained damages of varying extents. Meanwhile, 7,735 structures are located within a mile of the perimeter of the fire, some in designated Debris Overflow Hazard Areas. 
+  <p>
+      CZU Lightning Complex Fire was a major California wildfire in 2020 located across Santa Cruz and San Mateo Counties. In total, 86,509 acres of land were burned. Tens of thousands of residents evacuated from their homes, and in total, the fire destroyed 1,331 homes in Santa Cruz County. 
   </p>
   <p>
-     Many residents have yet to return home or rebuild as the city assesses damages and safety of roads and infrastructure and as insurance companies manage claims. This is all occurring in the midst of a housing crisis, where the average rent for a one-bedroom in Santa Cruz is nearly $2,500.00/month- and in the midst of a global pandemic, where unhoused residents are regularly evicted from encampments. 
-    </p>
+      Meanwhile, 7,735 structures (homes, county-owned buildings, and private businesses) are located within a mile of the perimeter of the fire, some in designated Debris Overflow Hazard Areas.
+  </p>
+  <p>
+      Many residents have yet to return home or rebuild as the city assesses damages and safety of roads and infrastructure and as insurance companies manage claims. This is all occurring in the midst of a housing crisis, where the average rent for a one-bedroom in Santa Cruz is nearly $2,500.00/month- and in the midst of a global pandemic, where unhoused residents are regularly evicted from encampments. 
+  </p>
   </div>
-  <h3>background + sources</h3>
+  <h3>BACKGROUND + SOURCES</h3>
   <div>
     <p>
-    As a resident of Santa Cruz myself, I am curious about data that various governmental and environmental agencies collected and made publicly available about the impacts of the CZU Fire. I want to explore these impacts in comparison to existing demographic conditions of the area. 
-  </p> 
-  <p>
-    This map draws in data about the number of existing units in block groups before the fire, percentage of units destroyed by the fire, and the median amount of income spent on rent in that area in 2019. This map visualizes the percentage of units that were destroyed in the CZU fire.
-  </p>
-  <p>
-     The label “destroyed” is defined by CAL Fire and the County of Santa Cruz as structures that were more than 50% burned, leaving them uninhabitable. Data sources include: 
-CalFire https://frap.fire.ca.gov/mapping/gis-data/
+      This map explores demographic data about Santa Cruz County residents whose homes were impacted and destroyed by the 2020 wildfire. Specifically, data about average median income, percent of owner vs. renter occupied homes, and percent of income that tenants spent on rent were relevant in understanding the affordability of different areas in the county prior to the 2020 wildfire. 
     </p>
+    <p>
+      The label “destroyed” is defined by CAL Fire and the County of Santa Cruz as structures that were more than 50% burned, leaving them uninhabitable. 
+    </p>
+    <p>
+      All data is calculated within block groups- clusters of blocks within the same census tract. These are geographical units designated by the U.S. Census Bureau.
+    </p> 
+    <p>
+      Data sources include: 
     <ul>
-      <li><a href="url">GIS Santa Cruz County https://gis.santacruzcounty.us/</a></li>
-      <li><a href="url">U.S. Census Bureau https://data.census.gov/</a></li>
-      <li><a href="url">CalFire https://frap.fire.ca.gov/mapping/gis-data/</a></li>
+      <li><a href="https://frap.fire.ca.gov/mapping/gis-data/">CalFire</a></li>
+      <li><a href="https://gis.santacruzcounty.us/">GIS Santa Cruz County</a></li>
+      <li><a href="https://data.census.gov/">U.S. Census Bureau</a></li>
     </ul>
+  </p>
   </div>
 </div>
 
@@ -85,12 +102,13 @@ CalFire https://frap.fire.ca.gov/mapping/gis-data/
     var map = new mapboxgl.Map({
         container: 'map', // container id
         style: 'mapbox://styles/cedudley/ckp4fs30n18jl17nxf3dmovea', // style URL
-        center: [-122.19511047038061, 37.1196740759339], // starting position [lng, lat]
-        zoom: 10.5 // starting zoom
+        center: [-122.15250178246671, 37.0541342875011], // starting position [lng, lat]
+        minZoom: 9.5,
+        maxZoom: 12 // starting zoom
     });
  map.on('click', function (e) {
     var features = map.queryRenderedFeatures(e.point, {
-    layers: ['percentdestroyedunits']
+    layers: ['mapbox-final2-94vf4j']
     });
     if (!features.length) {
     return;
@@ -101,21 +119,38 @@ CalFire https://frap.fire.ca.gov/mapping/gis-data/
   var popup = new mapboxgl.Popup({ offset: [0, -15] })
   .setLngLat(feature.geometry.coordinates)
   .setHTML(
-  '<h3>' + 'Number of occupied units before fire: ' +
-  feature.properties.title +
+  '<h3>' + 'Area(s) in this block group impacted by the wildfire: <br> ' + feature.properties.towns +
   '</h3>' +
-  '<p>' + 'Percent of units destroyed in fire: ' +
-  feature.properties.description +
+  '<p>' + 'Before the wildfire there were ' +
+  feature.properties.title + ' occupied homes' +
   '</p>' +
-  '<p>' + 'Average percent of income spent on rent in 2019: ' +
-  feature.properties.mgr_phhi +
+  '<p>' + feature.properties.descriptio + '% of homes were destroyed in the wildfire ' +
+  '</p>' +
+  '<p>' + 'In 2019, on average renters spent ' + feature.properties.mgr_phhi + '% of their income on rent' +
+  '</p>' +
+  '<p>' + 'In 2019, the median annual income for residents in this block group was $' + feature.properties.med_hhi_B1 + 
+  '</p>' +
+  '<p>' + 'In 2019, ' + feature.properties.pt_rnt_oc2 + '% of homes were occupied by renters in this block group' +
+  '</p>' +
+  '<p>' + 'In 2019, ' + feature.properties.pt_own_oc2 + '% of homes were occupied by owners in this block group' +
   '</p>'
+
   ).addTo(map);
   });
  
     $( "#opener" ).on( "click", function() {
       $( "#dialog" ).dialog( "open" );
     });
+
+
+map.on('mouseenter', 'mapbox-final2-94vf4j', function () {
+map.getCanvas().style.cursor = 'pointer';
+});
+ 
+// Change it back to a pointer when it leaves.
+map.on('mouseleave', 'mapbox-final2-94vf4j', function () {
+map.getCanvas().style.cursor = '';
+}); 
 </script>
 </body>
 </html>
